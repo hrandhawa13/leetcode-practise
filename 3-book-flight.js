@@ -27,17 +27,13 @@ const bookedSeats = new Map();
 const seats = ['', 'A', 'B', 'C', 'D', 'E'];
 
 function bookTicket(passengerName, flightNumber){
-    let nextSeatNumber ;
-
     if(isNaN(flightNumber) || !Number.isInteger(flightNumber) ||(flightNumber < 0 || flightNumber >5))
         throw new Error("Booking Error- Flight Number");
     if(!passengerName)
         throw new Error("Booking Error- Passenger Name");
+    let nextSeatNumber = 1;
     let totalSeatsBooked = bookedSeats.get(flightNumber);
-    if(!totalSeatsBooked){
-        nextSeatNumber = 1;
-    }
-    else{
+    if(totalSeatsBooked){
         nextSeatNumber = totalSeatsBooked+1;
         if(nextSeatNumber > 5 )
             throw new Error("Booking Error- Flight full");
