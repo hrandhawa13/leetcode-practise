@@ -10,3 +10,13 @@ let add = function(x,y){
 }
 console.log(add(1));
 
+let log = "1 20 50"
+console.log(log.split(" "));
+
+const returnArray = [];
+returnArray.push(parseInt("120"));
+returnArray.push(parseInt("121"));
+returnArray.push(parseInt("12"));
+returnArray.push(parseInt("119"));
+
+console.log(returnArray.sort((a,b) => a-b));
