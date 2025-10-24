@@ -41,7 +41,7 @@ function getLatency(ser1, ser2){
         return 0;
 
     let curr = ser1;
-    let latencyFrom1=0, latencyFrom2=0, ancestors1 = new Map(), ancestors2 = new Map();
+    let latencyFrom1=0, latencyFrom2=0, ancestors1 = new Map();
     while(curr){
         ancestors1.set(curr, latencyFrom1);
         if (!curr.parentConnection) break; // root reached
@@ -54,7 +54,6 @@ function getLatency(ser1, ser2){
     curr = ser2;
 
     while(curr){
-        ancestors2.set(curr, latencyFrom2);
         if(ancestors1.has(curr)){
             return ancestors1.get(curr) + latencyFrom2;
         }
@@ -66,3 +65,5 @@ function getLatency(ser1, ser2){
     return -1;
   
 }
+//T(C) : O(h)
+//S(C): O(h)
