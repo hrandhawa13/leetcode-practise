@@ -30,11 +30,12 @@ Output: 0
  * @return {number}
  */
 var coinChange = function(coins, amount) {
-    let dp = new Array(amount+1).fill(Infinity);
+    if (amount === 0) return 0;
+    let dp = new Array(amount+1).fill(amount+1);
     dp[0]=0;
     for(let i =0; i<=amount; i++){
         for(let c of coins){
-            if(i-c >=0){
+            if(c<=i){
                 dp[i] = Math.min(dp[i], 1+dp[i-c]);
             }            
         }
