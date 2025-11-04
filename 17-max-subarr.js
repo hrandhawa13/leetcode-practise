@@ -30,13 +30,11 @@ var maxSubArray = function(nums) {
     sumArr[0] = nums[0];
 
     for (let i =1; i< nums.length; i++){
-        console.log(nums[i], ", ", sumArr[i-1]);
         sumArr[i] = Math.max(nums[i], nums[i] + sumArr[i-1]);
         if(sumArr[i] > max)
             max = sumArr[i]
     }
-    for(let s of sumArr)
-        console.log(s);
+    
     return max;
 };
 
